@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BookListCollectionViewController: UIViewController {
     
     private let reuseIdentifier = "reuseIdentifier"
     private var collectionView: UICollectionView!
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
 }
 //MARK: - Setup View
-private extension ViewController {
+private extension BookListCollectionViewController {
     func setupView() {
         let layout = createLayout()
         
@@ -46,7 +46,7 @@ private extension ViewController {
 }
 
 //MARK: - Setup Layout
-private extension ViewController {
+private extension BookListCollectionViewController {
     func setupLayout() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -60,7 +60,7 @@ private extension ViewController {
 }
 
 //MARK: - Collection View Layout
-private extension ViewController {
+private extension BookListCollectionViewController {
     func createLayout() -> UICollectionViewLayout {
         let item = createLayoutItem()
         let group = createLayoutGroup(item)
@@ -139,7 +139,7 @@ private extension ViewController {
 
 
 //MARK: - UICollectionViewDataSource
-extension ViewController: UICollectionViewDataSource {
+extension BookListCollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         bookManager?.getTypesAmount() ?? 0
     }
