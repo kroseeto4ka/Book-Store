@@ -187,4 +187,5 @@ extension BookListCollectionViewController: UICollectionViewDataSource {
 
 struct ElementKind {
     static let badge = "badge"
+    static let background = "background"
 }

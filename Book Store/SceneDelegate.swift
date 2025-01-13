@@ -16,10 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let viewController = BookListCollectionViewController()
-        viewController.bookManager = setupBookManager()
+        let multipleSectionsViewController = MultipleSectionsViewController()
+        let bookListCollectionViewController = BookListCollectionViewController()
+        bookListCollectionViewController.bookManager = setupBookManager()
         
-        window?.rootViewController = viewController
+        window?.rootViewController = multipleSectionsViewController
         window?.makeKeyAndVisible()
     }
 }

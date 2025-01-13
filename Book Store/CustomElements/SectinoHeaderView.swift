@@ -14,9 +14,9 @@ class SectionHeaderView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         label.frame = bounds // Размер лейбла, равень размер самого элемента SectionHeaderView
-        label.textAlignment = .left
+        label.textAlignment = .natural
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
         addSubview(label)
     }
     

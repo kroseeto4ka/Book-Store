@@ -13,6 +13,7 @@ class BookDataManager {
     }
 }
 
+//MARK: - IBookDataManager
 extension BookDataManager: IBookDataManager {
     
     func getTypesAmount() -> Int {
