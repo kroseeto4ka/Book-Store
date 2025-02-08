@@ -9,3 +9,5 @@ struct BookModel {
     let type: String
     let books: [Book]
 }
+
+extension BookModel: Hashable {}

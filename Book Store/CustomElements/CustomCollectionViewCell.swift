@@ -23,7 +23,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(title: String, image: String, isNew: Bool) {
+    func configure(title: String, image: String) {
         bookImage.image = UIImage(named: image)
         bookName.text = title
     }

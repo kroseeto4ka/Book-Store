@@ -58,4 +58,12 @@ extension BookDataManager: IBookDataManager {
     func getMarkByIndex(section: Int, row: Int) -> Bool {
         return books[section].books[row].isNew
     }
+    
+    func getBooksOfIndex(index: Int) -> [Book] { 
+        books[index].books
+    }
+    
+    func getAllTypes() -> [BookModel] {
+        books
+    }
 }

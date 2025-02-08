@@ -13,4 +13,6 @@ protocol IBookDataManager {
     func getBookNameByIndex(section: Int, row: Int) -> String
     func getImageNameByIndex(section: Int, row: Int) -> String
     func getMarkByIndex(section: Int, row: Int) -> Bool
+    func getBooksOfIndex(index: Int) -> [Book]
+    func getAllTypes() -> [BookModel]
 }
