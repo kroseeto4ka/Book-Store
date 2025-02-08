@@ -15,4 +15,5 @@ protocol IBookDataManager {
     func getMarkByIndex(section: Int, row: Int) -> Bool
     func getBooksOfIndex(index: Int) -> [Book]
     func getAllTypes() -> [BookModel]
+    func getBookByIndex(section: Int, row: Int) -> Book
 }

@@ -16,6 +16,8 @@ class MultipleSectionsViewController: UIViewController {
         setupView()
         configureCollectionView()
     }
+    
+    
 }
 
 //MARK: - Setup View

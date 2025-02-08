@@ -66,4 +66,8 @@ extension BookDataManager: IBookDataManager {
     func getAllTypes() -> [BookModel] {
         books
     }
+    
+    func getBookByIndex(section: Int, row: Int) -> Book {
+        books[section].books[row]
+    }
 }

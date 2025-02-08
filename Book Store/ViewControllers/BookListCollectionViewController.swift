@@ -21,11 +21,20 @@ class BookListCollectionViewController: UIViewController {
         configureDataSource()
         applyInitialData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
 }
 //MARK: - Setup View
 private extension BookListCollectionViewController {
     func setupView() {
+        view.backgroundColor = .systemGray2
+        
         let layout = createLayout()
+        
+        setupNavigationBar()
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -41,9 +50,40 @@ private extension BookListCollectionViewController {
             withReuseIdentifier: BadgeView.reuseIdentifier
         )
         
-        collectionView.backgroundColor = .systemGray
+        collectionView.backgroundColor = .systemGray2
+        collectionView.delegate = self
         
         view.addSubview(collectionView)
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Доступные книги"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: nil,
+            action: nil
+        )
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        
+        appearance.backgroundColor = .systemGray
+        
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+        
+    appearance.largeTitleTextAttributes = [
+        .foregroundColor: UIColor.white,
+        .font: UIFont.systemFont(ofSize: 34, weight: .bold)
+    ]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 }
 
@@ -136,6 +176,14 @@ private extension BookListCollectionViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
         section.boundarySupplementaryItems = [createLayoutHeader()]
         return section
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+extension BookListCollectionViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailsVC = DetailViewController(book: bookManager?.getBookByIndex(section: indexPath.section, row: indexPath.row) ?? Book())
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 

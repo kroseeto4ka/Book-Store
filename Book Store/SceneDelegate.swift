@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let bookListCollectionViewController = BookListCollectionViewController()
         bookListCollectionViewController.bookManager = setupBookManager()
         
-        window?.rootViewController = bookListCollectionViewController
+        window?.rootViewController = UINavigationController(rootViewController: bookListCollectionViewController)
         window?.makeKeyAndVisible()
     }
 }
