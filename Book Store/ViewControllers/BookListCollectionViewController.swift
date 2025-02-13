@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookListCollectionViewController: UIViewController {
+final class BookListCollectionViewController: UIViewController {
     
     private let reuseIdentifier = "reuseIdentifier"
     private var collectionView: UICollectionView!
@@ -65,7 +65,7 @@ private extension BookListCollectionViewController {
         )
         
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.prefersLargeTitles = true
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()

@@ -7,7 +7,7 @@
 
 struct BookModel {
     let type: String
-    let books: [Book]
+    var books: [Book]
 }
 
 extension BookModel: Hashable {}

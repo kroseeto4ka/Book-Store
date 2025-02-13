@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     var book: Book?
     
     var isHeartActive = false
@@ -90,9 +90,9 @@ private extension DetailViewController {
     
     @objc
     private func favoriteButtonTapped() {
-        isHeartActive.toggle()
+        book?.toggleIsLiked()
         
-        if isHeartActive {
+        if book?.isLiked ?? true {
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
             navigationItem.rightBarButtonItem?.tintColor = .systemRed
         } else {

@@ -16,21 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let multipleSectionsViewController = MultipleSectionsViewController()
-        let bookListCollectionViewController = BookListCollectionViewController()
-        bookListCollectionViewController.bookManager = setupBookManager()
-        
-        window?.rootViewController = UINavigationController(rootViewController: bookListCollectionViewController)
+        window?.rootViewController = UINavigationController(rootViewController: TabBarController())
         window?.makeKeyAndVisible()
-    }
-}
-
-//MARK: - BookManager Setup
-extension SceneDelegate {
-    func setupBookManager() -> IBookDataManager {
-        let bookManager = BookManager()
-        let bookDataManager = BookDataManager(books: bookManager.getBooks())
-        
-        return bookDataManager
     }
 }

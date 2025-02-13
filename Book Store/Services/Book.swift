@@ -9,6 +9,7 @@ struct Book {
     let image: String
     let title: String
     var isNew = false
+    var isLiked = false
     
     init(image: String, title: String, isNew: Bool) {
         self.image = image
@@ -24,6 +25,10 @@ struct Book {
     init() {
         self.image = ""
         self.title = ""
+    }
+    
+    mutating func toggleIsLiked() {
+        isLiked.toggle()
     }
 }
 

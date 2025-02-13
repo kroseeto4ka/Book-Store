@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MultipleSectionsViewController: UIViewController {
+final class MultipleSectionsViewController: UIViewController {
     private let reuseIdentifier = "reuseIdentifier"
     private var collectionView: UICollectionView!
 
@@ -34,7 +34,7 @@ private extension MultipleSectionsViewController {
             withReuseIdentifier: SectionHeaderView.reuseIdentifier
         )
         
-        collectionView.backgroundColor = .systemGray
+        collectionView.backgroundColor = .systemGray2
         collectionView.dataSource = self
         
         view.addSubview(collectionView)
