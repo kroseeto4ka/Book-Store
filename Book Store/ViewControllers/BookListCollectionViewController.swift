@@ -34,8 +34,6 @@ private extension BookListCollectionViewController {
         
         let layout = createLayout()
         
-        setupNavigationBar()
-        
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(
@@ -51,21 +49,16 @@ private extension BookListCollectionViewController {
         )
         
         collectionView.backgroundColor = .systemGray2
-        collectionView.delegate = self
         
         view.addSubview(collectionView)
     }
     
     private func setupNavigationBar() {
         navigationItem.title = "Доступные книги"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .done,
-            target: nil,
-            action: nil
-        )
+        navigationItem.rightBarButtonItem = UIBarButtonItem()
         
         navigationController?.navigationBar.tintColor = .white
-        //navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -77,10 +70,10 @@ private extension BookListCollectionViewController {
             .font: UIFont.systemFont(ofSize: 18, weight: .bold)
         ]
         
-    appearance.largeTitleTextAttributes = [
-        .foregroundColor: UIColor.white,
-        .font: UIFont.systemFont(ofSize: 34, weight: .bold)
-    ]
+        appearance.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 34, weight: .bold)
+        ]
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance

@@ -24,10 +24,12 @@ private extension TabBarController {
             case .home:
                 let bookList = BookListCollectionViewController()
                 bookList.bookManager = setupBookManager()
-                
-                return bookList
+                let navController = UINavigationController(rootViewController: bookList)
+                return navController
             case .search:
-                return MultipleSectionsViewController()
+                let multipleSectionsVC = MultipleSectionsViewController()
+                let navController = UINavigationController(rootViewController: multipleSectionsVC)
+                return navController
             }
         }
     }
